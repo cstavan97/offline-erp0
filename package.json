@@ -1,24 +1,30 @@
 {
   "name": "offline-erp",
   "version": "1.0.0",
-  "description": "Offline ERP System",
+  "description": "An offline ERP desktop app for construction management",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
+  "author": "Stavan",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.2.3",
+    "electron-builder": "^24.13.3"
+  },
   "build": {
-    "appId": "com.stavan.offlineerp",
+    "appId": "com.offline.erp",
     "productName": "Offline ERP",
-    "win": {
-      "target": "nsis"
-    },
     "directories": {
       "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "target": "nsis"
     }
-  },
-  "devDependencies": {
-    "electron": "^29.3.1",
-    "electron-builder": "^24.6.0"
   }
 }
