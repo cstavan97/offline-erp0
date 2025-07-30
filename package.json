@@ -10,9 +10,9 @@
   },
   "author": "Stavan",
   "license": "MIT",
-  "devDependencies": {
-    "electron": "^28.2.3",
-    "electron-builder": "^24.13.3"
+  "Dependencies": {
+    "sqlite": "^5.1.6",
+    "electron-builder": "^28.3.3"
   },
   "build": {
     "appId": "com.offline.erp",
