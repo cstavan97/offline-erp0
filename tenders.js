@@ -1,5 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./db/erp.db');
+const db = new sqlite3.Database('erp.db');
 
 const tenderForm = document.getElementById('tender-form');
 const tenderTableBody = document.getElementById('tender-table-body');
