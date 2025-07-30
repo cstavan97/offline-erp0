@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <h2>Attendance Entry</h2>
+
+  <label>Date: <input type="date" id="date"></label><br>
+  <label>Labour Name: <input type="text" id="labour"></label><br>
+  <label>Hours Worked: <input type="number" id="hours"></label><br>
+  <button onclick="submitAttendance()">Submit</button>
+
+  <!-- 💾 Import/Export buttons go here -->
+  <button onclick="importFromCSV('attendance')">📥 Import Attendance</button>
+  <button onclick="exportToCSV('attendance')">📤 Export Attendance</button>
+
+  <p id="msg"></p>
+
+  <script src="./renderer/attendance.js"></script>
+
+  <script src="renderer/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Work Orders</title>
+</head>
+<body>
+  <h2>Create New Work Order</h2>
+  <label>Work ID: <input type="text" id="work_id" /></label><br />
+  <label>Description: <input type="text" id="description" /></label><br />
+  <label>Amount: <input type="number" id="amount" /></label><br />
+  <label>Start Date: <input type="date" id="start_date" /></label><br />
+  <label>End Date: <input type="date" id="end_date" /></label><br />
+  <label>Status: 
+    <select id="status">
+      <option value="Pending">Pending</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
+    </select>
+  </label><br />
+  <button onclick="saveWorkOrder()">Save</button>
+  <p id="msg"></p>
+
+  <h3>All Work Orders</h3>
+  <div id="workorders-list"></div>
+
+  <script src="./renderer/workorders.js"></script>
+  <script src="./renderer/utils.js"></script>
+  <script src="renderer/auth.js"></script>
+</body>
+</html>

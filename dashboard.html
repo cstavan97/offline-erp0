@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    a {
+      display: block;
+      margin: 15px 0;
+      font-size: 18px;
+      text-decoration: none;
+      color: #2980b9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #c0392b;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="welcome"></h2>
+
+  <div id="users-section">
+    <a href="users.html">User Management</a>
+  </div>
+
+  <div id="attendance-section">
+    <a href="attendance.html">Labour Attendance</a>
+  </div>
+
+  <div id="expenses-section">
+    <a href="expenses.html">Expenses</a>
+  </div>
+
+  <div id="workorders-section">
+    <a href="workorders.html">Work Orders</a>
+  </div>
+
+  <div id="tenders-section">
+    <a href="tenders.html">Tenders</a>
+  </div>
+
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    // Get current user from localStorage
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (!currentUser) {
+      alert("Please log in first.");
+      window.location.href = 'login.html';
+    } else {
+      document.getElementById('welcome').innerText = `Welcome, ${currentUser.username} (${currentUser.role})`;
+
+      // Role-based hiding
+      if (currentUser.role === 'manager') {
+        document.getElementById('users-section').style.display = 'none';
+      } else if (currentUser.role === 'user') {
+        document.getElementById('users-section').style.display = 'none';
+        document.getElementById('expenses-section').style.display = 'none';
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem('currentUser');
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Expenses</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <h2>Expense Tracker</h2>
+
+  <div id="add-expense-section">
+    <label>Date: <input type="date" id="expense-date"></label><br>
+    <label>Description: <input type="text" id="expense-desc"></label><br>
+    <label>Amount: <input type="number" id="expense-amount"></label><br>
+    <button onclick="saveExpense()">Save Expense</button>
+    <p id="exp-msg"></p>
+  </div>
+
+  <h3>Expense History</h3>
+  <table border="1" id="expense-table">
+    <thead>
+      <tr><th>Date</th><th>Description</th><th>Amount</th><th>Added By</th><th>Action</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- 💾 Import/Export buttons go here -->
+  <button onclick="importFromCSV('attendance')">📥 Import Attendance</button>
+  <button onclick="exportToCSV('attendance')">📤 Export Attendance</button>
+
+  <script>
+    const currentUser = localStorage.getItem('username');
+    const currentRole = localStorage.getItem('role');
+  </script>
+  <script src="./renderer/expenses.js"></script>
+
+  <script src="renderer/auth.js"></script>
+
+</body>
+</html>
