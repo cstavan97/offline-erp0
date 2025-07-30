@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { dialog } = require('electron').remote;
 const sqlite3 = require('sqlite3').verbose();
-const dbPath = path.join(__dirname, '../db/erp.db');
+const dbPath = path.join(__dirname, 'erp.db');
 const db = new sqlite3.Database(dbPath);
 
 // Export any table to CSV
