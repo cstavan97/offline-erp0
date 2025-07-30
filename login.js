@@ -1,31 +1,24 @@
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
-const dbPath = path.join(__dirname, '..', 'db', 'erp.sqlite3');
-const db = new sqlite3.Database(dbPath);
+// renderer/login.js
 
-document.getElementById('loginForm').addEventListener('submit', function (e) {
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const username = document.getElementById('username').value.trim();
-  const password = document.getElementById('password').value.trim();
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
   const loginMessage = document.getElementById('loginMessage');
 
-  db.get('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], (err, row) => {
-    if (err) {
-      console.error(err.message);
-      loginMessage.textContent = 'An error occurred.';
-    } else if (!row) {
-      loginMessage.textContent = 'Invalid username or password';
-    } else {
-      // Save user info to localStorage for role-based access later
-      localStorage.setItem('currentUser', JSON.stringify({
-        id: row.id,
-        username: row.username,
-        role: row.role
-      }));
+  try {
+    const user = await window.electronAPI.loginUser(username, password);
 
-      // Redirect to dashboard
+    if (!user) {
+      loginMessage.textContent = 'Invalid username or password.';
+    } else {
+      // Save user data for use in dashboard (role-based access)
+      localStorage.setItem('currentUser', JSON.stringify(user));
       window.location.href = 'dashboard.html';
     }
-  });
+  } catch (err) {
+    console.error('Login error:', err);
+    loginMessage.textContent = 'Login failed due to an internal error.';
+  }
 });
