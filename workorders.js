@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
-const dbPath = path.join(__dirname, '../db/erp.db');
+const dbPath = path.join(__dirname, 'erp.db');
 const db = new sqlite3.Database(dbPath);
 
 function saveWorkOrder() {
