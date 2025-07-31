@@ -1,10 +1,12 @@
 {
   "name": "offline-erp",
   "version": "1.0.0",
+  "description": "Offline ERP System",
+  "author": "Stavan",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder"
+    "dist": "electron-builder --win --x64"
   },
   "build": {
     "appId": "com.erp.offline",
@@ -14,14 +16,14 @@
     ],
     "win": {
       "target": "nsis"
-    }
+    },
     "publish": null
   },
   "dependencies": {
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {
-    "electron": "28.3.3",
+    "electron": "^28.3.3",
     "electron-builder": "^26.0.12"
   }
 }
