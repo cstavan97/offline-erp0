@@ -36,12 +36,13 @@ const db = new sqlite3.Database(dbPath, (err) => {
 // Handle user login
 ipcMain.handle('login-user', async (event, username, password) => {
   return new Promise((resolve, reject) => {
-    db.get('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], (err, row) => {
+    const query = `SELECT * FROM users WHERE username = ? AND password = ?`;
+    db.get(query, [username, password], (err, row) => {
       if (err) {
-        console.error('Database login error:', err.message);
+        console.error('Login DB error:', err);
         reject(err);
       } else {
-        resolve(row); // If null, login failed. If object, login success.
+        resolve(row); // Will be null if not found
       }
     });
   });
