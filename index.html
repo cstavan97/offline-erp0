@@ -8,12 +8,16 @@
 <body>
   <div class="login-box">
     <h2>ERP Login</h2>
-    <input id="username" type="text" placeholder="Username" />
-    <input id="password" type="password" placeholder="Password" />
-    <button onclick="login()">Login</button>
-    <p id="error-msg" style="color:red;"></p>
+    <!-- Add a proper form and ID -->
+    <form id="loginForm">
+      <input id="username" type="text" placeholder="Username" required />
+      <input id="password" type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <p id="loginMessage" style="color:red;"></p>
+    </form>
   </div>
 
+  <!-- Load login.js properly -->
   <script src="login.js"></script>
 </body>
 </html>
