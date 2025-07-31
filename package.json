@@ -1,31 +1,26 @@
 {
   "name": "offline-erp",
   "version": "1.0.0",
-  "description": "An offline ERP desktop app for construction management",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-rebuild -f -w sqlite3 --version 28.3.3",
-    "dist": "electron-builder --win --x64"
-  },
-  "author": "Stavan",
-  "license": "MIT",
-  "Dependencies": {
-    "sqlite": "^5.1.6",
-    "electron-builder": "^28.3.3"
+    "dist": "electron-builder"
   },
   "build": {
-    "appId": "com.offline.erp",
+    "appId": "com.erp.offline",
     "productName": "Offline ERP",
-    "directories": {
-      "output": "dist"
-    },
     "files": [
       "**/*"
     ],
     "win": {
       "target": "nsis"
-    },
-    "publish":null
+    }
+  },
+  "dependencies": {
+    "electron": "^28.3.3",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "electron-builder": "^26.0.12"
   }
 }
